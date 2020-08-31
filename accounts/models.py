@@ -16,6 +16,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=254,
         verbose_name='이메일',
     )
+    lecture_history = models.ManyToManyField(
+        Lecture, 
+        through='History',
+        through_fields=('user', 'lecture'),
+        verbose_name='시청한 강의',
+    )
     lecture_count = models.PositiveIntegerField(
         default=0,
         verbose_name='시청한 강의 개수',
@@ -33,6 +39,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         db_index=True,
         default=True,
         verbose_name='계정 활성',
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
     )
 
     objects = UserManager()
@@ -54,4 +66,39 @@ class User(AbstractBaseUser, PermissionsMixin):
             username=self.username,
             email=self.email,
             is_subscriber='✅' if self.is_subscriber else '',
+        )
+
+
+class History(models.Model):
+    user = models.ForeignKey(
+        User, 
+        verbose_name="사용자", 
+        on_delete=models.CASCADE,
+    )
+    lecture = models.ForeignKey(
+        Lecture,
+        verbose_name="강의",
+        on_delete=models.CASCADE,
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    class Meta:
+        verbose_name = '시청기록'
+        verbose_name_plural = '시청기록'
+
+        ordering = [
+            '-created_at',
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user','lecture'],
+            ),
+        ]
+
+    def __str__(self):
+        return '{user}-{lecture}'.format(
+            user=self.user,
+            lecture=self.lecture,
         )
