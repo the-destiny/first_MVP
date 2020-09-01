@@ -60,14 +60,17 @@ class Lecture(models.Model):
         blank=True,
         verbose_name='중분류',
     )
+    slug = models.SlugField(
+        max_length=18, 
+        allow_unicode=True, 
+        blank=True,
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
     updated_at = models.DateTimeField(
         auto_now=True,
     )
-
-    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, blank=True)
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)
