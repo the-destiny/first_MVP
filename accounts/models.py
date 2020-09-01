@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 from django.db import models
+from lectures.models import Lecture
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
@@ -93,7 +94,8 @@ class History(models.Model):
         ]
         constraints = [
             models.UniqueConstraint(
-                fields=['user','lecture'],
+                fields=['user', 'lecture'],
+                name='history_pair'
             ),
         ]
 
