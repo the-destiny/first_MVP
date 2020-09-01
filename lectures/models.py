@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Lecture(models.Model):
 
@@ -60,6 +61,11 @@ class Lecture(models.Model):
         blank=True,
         verbose_name='중분류',
     )
+    slug = models.SlugField(
+        max_length=18, 
+        allow_unicode=True, 
+        blank=True,
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
@@ -67,6 +73,10 @@ class Lecture(models.Model):
         auto_now=True,
     )
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.sub_category)
+        super(Lecture, self).save(*args, **kwargs)
+        
     class Meta:
         verbose_name = '강의'
         verbose_name_plural = '강의'
