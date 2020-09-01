@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Lecture(models.Model):
 
@@ -27,8 +28,7 @@ class Lecture(models.Model):
         InDesign = 'InDesign', 'InDesign'
         Illustrator = 'Illustrator', 'Illustrator'
         Sketch = 'Sketch', 'Sketch'
-
-
+        
     title = models.CharField(
         max_length=100,
         unique=True,
@@ -66,6 +66,12 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
+
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, blank=True)
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.sub_category)
+        super(Lecture, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = '강의'
