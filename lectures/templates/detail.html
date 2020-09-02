@@ -1,16 +1,32 @@
 <!DOCTYPE html>
+{% load static %}
+{% load sass_tags %}
 <html>
 <head>
-
+    <link href="{% sass_src 'style/detail.scss' %}"
+        rel= "stylesheet" type="text/css" />   
 </head>
 <body>
+    <div id="header">
+        <img src= "{% static 'img/logo.png' %}">
+        <span>퐁듀</span>
+    </div>
 
-    <header>퐁듀</header>
-    
-    <div id="player"></div>
-    <div>{{lecture.title}}</div>
-    <div>{{lecture.lecturer}}</div>
-    <div>{{lecture.description}}</div>
+    <section>
+        <div id="player"></div>
+        <div class="tag">
+            # {{lecture.main_category}}&ensp; 
+            # {{lecture.sub_category}}
+        </div>
+        <hr>
+        <div class="lecturer">
+            강의자 : {{lecture.lecturer}}
+        </div>
+        <div class="description">
+            뭘 배울 수 있나요?<br>
+            {{lecture.description}}
+        </div>
+    </section>
     
     <script>
         var tag = document.createElement('script');
@@ -22,14 +38,12 @@
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                height: '360',
-                width: '640',
+                height: '524',
                 videoId: '{{lectureId}}',
                 suggestedQuality: 'hd1080',
             });
         }
     </script>
-
 </body>
 </html>
 
