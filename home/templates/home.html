@@ -1,0 +1,69 @@
+{% load static %}
+<html>
+<head>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .background {
+            background-image: url("{% static 'bg.jpg' %}");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            position: relative;
+        }
+        .background_div_logo {
+            height: 200px;
+            width:250px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        .background_div {
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 100%;
+        }
+        .background_div > p {
+            position: absolute;
+            top: 450px; 
+            left: 0; 
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 50px;
+            opacity: 1;
+        }
+        .background_div > button {
+            background-color: gold;
+            border: none;
+            border-radius: 30px;
+            height: 100px;
+            width: 400px;
+            font-size: 50px;
+            position: absolute;
+            bottom: 500px;
+            left: 290px;
+        }
+        .background_div > button:hover {
+            background-color: rgb(250, 226, 87);
+        }
+    </style>
+</head>
+<body>
+    <div class="background">   
+        <div class="background_div">
+            <img class="background_div_logo" src="{% static 'fondue.png' %}"> 
+            <p>Hi everyone!<br><br>다양한 강의를 찍어먹을 수 있는 퐁듀입니다.<br><br>
+            관심있는 분야의 강의를 수강하고<br><br>무료 이용권을 받아보세요!</p>
+            <button href="#">만나러 가기</button>
+        </div>
+    </div>
+</body>
+</html>
