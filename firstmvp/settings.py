@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sass_processor',
     'accounts',
     'lectures',
     'home',
@@ -85,8 +86,13 @@ USE_TZ = True
 AUTH_USER_MODEL = 'accounts.User'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home', 'static')
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'lectures', 'static'),
+    os.path.join(BASE_DIR, 'home', 'static'),
+)
+
+SASS_PROCESSOR_ENABLED = True
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
