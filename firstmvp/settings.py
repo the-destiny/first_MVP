@@ -85,13 +85,18 @@ USE_TZ = True
 AUTH_USER_MODEL = 'accounts.User'
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'lectures', 'static'),
     os.path.join(BASE_DIR, 'home', 'static'),
 )
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
 
 SASS_PROCESSOR_ENABLED = True
 
