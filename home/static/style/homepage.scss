@@ -1,0 +1,56 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.bg {
+    background-image: url("../img/bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.bg_div_logo {
+    height: 200px;
+    width:250px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.bg_div {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+p {
+    position: absolute;
+    top: 20%; 
+    left: 0; 
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    opacity: 1;
+}
+.button_container {
+    height: 100%;
+    position: relative;
+}
+.center {
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+button {
+    background-color: gold;
+    border: none;
+    border-radius: 30px;
+    height: 60px;
+    width: 200px;
+    font-size: 30px;
+    &:hover {
+        background-color: rgb(250, 226, 87);
+    }
+}
