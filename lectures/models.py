@@ -28,8 +28,7 @@ class Lecture(models.Model):
         InDesign = 'InDesign', 'InDesign'
         Illustrator = 'Illustrator', 'Illustrator'
         Sketch = 'Sketch', 'Sketch'
-
-
+        
     title = models.CharField(
         max_length=100,
         unique=True,
@@ -72,6 +71,10 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.sub_category)
+        super(Lecture, self).save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)
