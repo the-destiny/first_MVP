@@ -71,10 +71,6 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
-    
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.sub_category)
-        super(Lecture, self).save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)
