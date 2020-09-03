@@ -1,4 +1,4 @@
-@import "./mixin";
+@import "./responsive_layout";
 $btn-hover-color: rgb(250, 226, 87);
 $bg-color: aliceblue;
 
@@ -17,7 +17,7 @@ body, html {
   background-color: $bg-color;
 }
 
-.bg_div_logo {
+.logo {
   height: 200px;
   width:250px;
   position: absolute;
@@ -48,7 +48,7 @@ p {
   }
 }
 
-.center {
+.btn_div {
   margin: 0;
   position: absolute;
   top: 85%;
