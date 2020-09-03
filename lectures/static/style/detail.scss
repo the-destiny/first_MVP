@@ -12,29 +12,49 @@ body{
     }
 }
 
+<<<<<<< HEAD
 .header{
     height: 150px;
     display: table;
     img{
         height: 150px;
     }
+=======
+#header{
+    height: 150px;
+    display: table;
+>>>>>>> 10b88e5... [#6] Implement detailpage
     span{
         font-family: 'Bazzi';
         font-size: 100px;
         display: table-cell;
         vertical-align: middle;
     }
+<<<<<<< HEAD
+=======
+    img{
+        height: 150px;
+    }
+>>>>>>> 10b88e5... [#6] Implement detailpage
 }
 
 section{
     border-top: 5px solid;
+<<<<<<< HEAD
     .video{
+=======
+    #player{
+>>>>>>> 10b88e5... [#6] Implement detailpage
         text-align: center;
         left: 0px;
         width: 100%;
         border-bottom: 5px solid;
     }
+<<<<<<< HEAD
     .lecture_info{
+=======
+    div{
+>>>>>>> 10b88e5... [#6] Implement detailpage
         margin: 30px 60px;
         font-family: 'Bazzi';
         font-size: 30px;
