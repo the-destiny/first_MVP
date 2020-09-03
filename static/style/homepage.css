@@ -2,7 +2,7 @@ body, html {
   height: 100%;
   margin: 0; }
 
-.bg {
+.home_bg_img {
   background-image: url("../img/bg.jpg");
   height: 100%;
   background-position: center;
@@ -18,28 +18,27 @@ body, html {
   left: 20px;
   top: 20px; }
 
-p {
+.home_content {
   position: absolute;
   top: 20%;
   left: 0;
   width: 100%;
   text-align: center;
   color: white;
-  opacity: 1;
   font-size: 42px; }
   @media (min-device-width: 335px) and (max-device-width: 569px) {
-    p {
+    .home_content {
       font-size: 40px; } }
   @media (min-device-width: 570px) and (max-device-width: 757px) {
-    p {
+    .home_content {
       font-size: 36px; } }
   @media (min-device-width: 758px) and (max-device-width: 1023px) {
-    p {
+    .home_content {
       font-size: 40px; } }
   @media (min-device-width: 1024px) {
-    p {
+    .home_content {
       font-size: 40px; } }
-.btn_div {
+.home_btn_wrapper {
   margin: 0;
   position: absolute;
   top: 85%;
@@ -47,7 +46,7 @@ p {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-button {
+.home_btn {
   background-color: gold;
   border: 0;
   height: 95px;
@@ -55,30 +54,30 @@ button {
   font-size: 45px;
   border-radius: 40px; }
   @media (min-device-width: 335px) and (max-device-width: 569px) {
-    button {
+    .home_btn {
       height: 92px;
       width: 450px;
       font-size: 46px;
       border-radius: 40px; } }
   @media (min-device-width: 570px) and (max-device-width: 757px) {
-    button {
+    .home_btn {
       height: 70px;
       width: 400px;
       font-size: 40px;
       border-radius: 40px; } }
   @media (min-device-width: 758px) and (max-device-width: 1023px) {
-    button {
+    .home_btn {
       height: 67px;
       width: 350px;
       font-size: 36px;
       border-radius: 40px; } }
   @media (min-device-width: 1024px) {
-    button {
+    .home_btn {
       height: 67px;
       width: 300px;
       font-size: 32px;
       border-radius: 40px; } }
-  button:hover {
+  .home_btn:hover {
     background-color: #fae257;
     cursor: pointer; }
 
