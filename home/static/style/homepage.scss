@@ -6,6 +6,7 @@ body, html {
   height: 100%;
   margin: 0;
 }
+
 .bg {
   background-image: url("../img/bg.jpg");
   height: 100%;
@@ -15,6 +16,7 @@ body, html {
   position: relative;
   background-color: $bg-color;
 }
+
 .bg_div_logo {
   height: 200px;
   width:250px;
@@ -22,10 +24,12 @@ body, html {
   left: 20px;
   top: 20px;
 }
+
 .bg_div {
   height: 100%;
   position: relative;
 }
+
 p {
   position: absolute;
   top: 20%; 
@@ -48,6 +52,7 @@ p {
     font-size: 40px;
   }
 }
+
 .center {
   margin: 0;
   position: absolute;
@@ -56,6 +61,7 @@ p {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 button {
   background-color: gold;
   border: 0;

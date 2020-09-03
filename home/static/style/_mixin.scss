@@ -8,16 +8,19 @@ $breakpoint-desktop: 1024px;
       @content;
     }
   }
+
 @mixin slim-tablet {
     @media (min-device-width: #{$breakpoint-slim-tablet}) and (max-device-width: #{$breakpoint-tablet - 1px}) {
       @content;
     }
   }
+
 @mixin tablet {
     @media (min-device-width: #{$breakpoint-tablet}) and (max-device-width: #{$breakpoint-desktop - 1px}) {
       @content;
     }
   }
+  
 @mixin desktop {
     @media (min-device-width: #{$breakpoint-desktop}) {
       @content;
