@@ -18,10 +18,6 @@ body, html {
   left: 20px;
   top: 20px; }
 
-.bg_div {
-  height: 100%;
-  position: relative; }
-
 p {
   position: absolute;
   top: 20%;
