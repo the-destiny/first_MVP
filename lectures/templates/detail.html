@@ -3,8 +3,8 @@
 {% load sass_tags %}
 <html>
 <head>
-    <link href="{% sass_src 'style/detail.scss' %}"
-        rel= "stylesheet" type="text/css" />   
+    <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -12,21 +12,26 @@
         <span>퐁듀</span>
     </div>
 
-    <section>
-        <div id="player" class="video"></div>
-        <div class="lecture_info tag">
-            # {{lecture.main_category}}&ensp; 
-            # {{lecture.sub_category}}
+    <div id="player" class="video"></div>
+    
+    <div class = "lecture">
+        <div class="lecture__info tag">
         </div>
         <hr>
-        <div class="lecture_info">
-            강의자 : {{lecture.lecturer}}
+        <div class="lecture__info title">
         </div>
-        <div class="lecture_info">
-            뭘 배울 수 있나요?<br>
-            {{lecture.description}}
+        <div class="lecture__info description">
         </div>
-    </section>
+    </div>
+    
+
+    <div class = "playlist">
+        {% for lecture in lectures %}
+            <button onclick="handleclick('{{lecture.pk}}')" class = "playlist__item">
+                <h4>{{lecture.title}}</h4>
+            </button>
+        {% endfor %}    
+    </div>
     
     <script>
         var tag = document.createElement('script');
@@ -43,6 +48,56 @@
                 suggestedQuality: 'hd1080',
             });
         }
+
+    </script>
+
+    <script>
+        var buttons = document.getElementsByClassName("playlist__item");
+        var description = document.getElementsByClassName("description")[0];             
+        var title = document.getElementsByClassName("title")[0];             
+        var slug = '{{slug}}'
+        console.log(slug);
+        console.log(buttons[0]);
+
+        axios.get(`/lecture/detail/${slug}/1/`)
+            .then(function(response){
+                var data = response.data.data;
+                        
+                var title_h4 = document.createElement("h4");
+                title_h4.classList.add("title_0");
+                var description_p = document.createElement("p");  
+                description_p.classList.add("description_0");
+
+                var title_text = document.createTextNode(`${data.title}`);       
+                var description_text = document.createTextNode(`${data.description}`);        
+
+                title_h4.appendChild(title_text);
+                description_p.appendChild(description_text);
+
+                title.appendChild(title_h4);
+                description.appendChild(description_p);
+
+                if (!data.is_clicked){
+                    buttons[0].classList.add("playlist__item__clicked");
+                }
+            })
+
+    </script>
+
+    <script>
+        function handleclick(value){
+            
+            console.log(value);
+            var lecture_clicked = document.getElementsByClassName("playlist__item");
+            console.log(lecture_clicked);
+
+            axios.get(`/lecture/detail/${slug}/${value}/clicked/`)
+                .then(function(response){
+                    var data = response.data.data;
+                    console.log(data);
+                })
+            }
+
     </script>
 </body>
 </html>
