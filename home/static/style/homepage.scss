@@ -1,3 +1,5 @@
+@import "./mixin";
+
 body, html {
     height: 100%;
     margin: 0;
@@ -20,6 +22,7 @@ body, html {
 .bg_div {
     background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
+    position: relative;
 }
 p {
     position: absolute;
@@ -28,17 +31,25 @@ p {
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 30px;
     opacity: 1;
-}
-.button_container {
-    height: 100%;
-    position: relative;
+    font-size: 42px;
+    @include mobile {
+        font-size: 40px;
+    }
+    @include slim-tablet {
+        font-size: 35px;
+    }
+    @include tablet {
+        font-size: 40px;
+    }
+    @include desktop {
+        font-size: 40px;
+    }
 }
 .center {
     margin: 0;
     position: absolute;
-    top: 80%;
+    top: 85%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -46,11 +57,36 @@ p {
 button {
     background-color: gold;
     border: none;
-    border-radius: 30px;
-    height: 60px;
-    width: 200px;
-    font-size: 30px;
+    height: 95px;
+    width: 450px;
+    font-size:45px;
+    border-radius: 40px;
+    @include mobile {
+        height: 92px;
+        width: 450px;
+        font-size: 47px;
+        border-radius: 40px;
+    }
+    @include slim-tablet {
+        height: 70px;
+        width: 400px;
+        font-size: 40px;
+        border-radius: 40px;
+    }
+    @include tablet {
+        height: 67px;
+        width: 350px;
+        font-size: 35px;
+        border-radius: 40px;
+    }
+    @include desktop {
+        height: 67px;
+        width: 300px;
+        font-size: 30px;
+        border-radius: 40px;
+    }
     &:hover {
         background-color: rgb(250, 226, 87);
+        cursor: pointer;
     }
 }
