@@ -12,69 +12,29 @@ body{
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .header{
     height: 150px;
     display: table;
     img{
         height: 150px;
     }
-=======
-#header{
-    height: 150px;
-    display: table;
->>>>>>> 10b88e5... [#6] Implement detailpage
-=======
-.header{
-    height: 150px;
-    display: table;
-    img{
-        height: 150px;
-    }
->>>>>>> e773534... [#6] Correct code
     span{
         font-family: 'Bazzi';
         font-size: 100px;
         display: table-cell;
         vertical-align: middle;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    img{
-        height: 150px;
-    }
->>>>>>> 10b88e5... [#6] Implement detailpage
-=======
->>>>>>> e773534... [#6] Correct code
 }
 
 section{
     border-top: 5px solid;
-<<<<<<< HEAD
-<<<<<<< HEAD
     .video{
-=======
-    #player{
->>>>>>> 10b88e5... [#6] Implement detailpage
-=======
-    .video{
->>>>>>> e773534... [#6] Correct code
         text-align: center;
         left: 0px;
         width: 100%;
         border-bottom: 5px solid;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     .lecture_info{
-=======
-    div{
->>>>>>> 10b88e5... [#6] Implement detailpage
-=======
-    .lecture_info{
->>>>>>> e773534... [#6] Correct code
         margin: 30px 60px;
         font-family: 'Bazzi';
         font-size: 30px;
@@ -83,4 +43,3 @@ section{
         }
     }
 }
-

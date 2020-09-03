@@ -5,10 +5,6 @@ import lectures.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
     path('', home.views.home, name="home"),
     path('lecture/', include('lectures.urls')), 
-=======
-    path('', home.views.home, name='home'),\
->>>>>>> dec9aa1... conflicts resolved
 ]

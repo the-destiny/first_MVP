@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'accounts',
     'lectures',
     'home',
-    'sass_processor',
 ]
 
 MIDDLEWARE = [
