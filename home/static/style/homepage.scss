@@ -1,92 +1,94 @@
 @import "./mixin";
+$btn-hover-color: rgb(250, 226, 87);
+$bg-color: aliceblue;
 
 body, html {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 .bg {
-    background-image: url("../img/bg.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  background-image: url("../img/bg.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-color: $bg-color;
 }
 .bg_div_logo {
-    height: 200px;
-    width:250px;
-    position: absolute;
-    left: 20px;
-    top: 20px;
+  height: 200px;
+  width:250px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
 .bg_div {
-    background-color: rgba(0, 0, 0, 0.3);
-    height: 100%;
-    position: relative;
+  height: 100%;
+  position: relative;
 }
 p {
-    position: absolute;
-    top: 20%; 
-    left: 0; 
-    width: 100%;
-    text-align: center;
-    color: white;
-    opacity: 1;
-    font-size: 42px;
-    @include mobile {
-        font-size: 40px;
-    }
-    @include slim-tablet {
-        font-size: 35px;
-    }
-    @include tablet {
-        font-size: 40px;
-    }
-    @include desktop {
-        font-size: 40px;
-    }
+  position: absolute;
+  top: 20%; 
+  left: 0; 
+  width: 100%;
+  text-align: center;
+  color: white;
+  opacity: 1;
+  font-size: 42px;
+  @include mobile {
+    font-size: 40px;
+  }
+  @include slim-tablet {
+    font-size: 36px;
+  }
+  @include tablet {
+    font-size: 40px;
+  }
+  @include desktop {
+    font-size: 40px;
+  }
 }
 .center {
-    margin: 0;
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 button {
-    background-color: gold;
-    border: none;
-    height: 95px;
+  background-color: gold;
+  border: 0;
+  height: 95px;
+  width: 450px;
+  font-size:45px;
+  border-radius: 40px;
+  @include mobile {
+    height: 92px;
     width: 450px;
-    font-size:45px;
+    font-size: 46px;
     border-radius: 40px;
-    @include mobile {
-        height: 92px;
-        width: 450px;
-        font-size: 47px;
-        border-radius: 40px;
-    }
-    @include slim-tablet {
-        height: 70px;
-        width: 400px;
-        font-size: 40px;
-        border-radius: 40px;
-    }
-    @include tablet {
-        height: 67px;
-        width: 350px;
-        font-size: 35px;
-        border-radius: 40px;
-    }
-    @include desktop {
-        height: 67px;
-        width: 300px;
-        font-size: 30px;
-        border-radius: 40px;
-    }
-    &:hover {
-        background-color: rgb(250, 226, 87);
-        cursor: pointer;
-    }
+  }
+  @include slim-tablet {
+    height: 70px;
+    width: 400px;
+    font-size: 40px;
+    border-radius: 40px;
+  }
+  @include tablet {
+    height: 67px;
+    width: 350px;
+    font-size: 36px;
+    border-radius: 40px;
+  }
+  @include desktop {
+    height: 67px;
+    width: 300px;
+    font-size: 32px;
+    border-radius: 40px;
+  }
+  &:hover {
+    background-color: $btn-hover-color;
+    cursor: pointer;
+  }
 }

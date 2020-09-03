@@ -88,6 +88,7 @@ AUTH_USER_MODEL = 'accounts.User'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'home', 'static'),
+    os.path.join(BASE_DIR, 'lecture', 'static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
