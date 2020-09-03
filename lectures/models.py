@@ -71,11 +71,11 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)
         super(Lecture, self).save(*args, **kwargs)
-
+        
     class Meta:
         verbose_name = '강의'
         verbose_name_plural = '강의'
