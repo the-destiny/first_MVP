@@ -52,7 +52,7 @@ body {
     font-size: 36px;
     padding-left: 2%;
     font-family: 'Bazzi'; }
-    .playlist__item__clicked {
+    .playlist__item--clicked {
       background-color: rgba(63, 63, 63, 0.658);
       color: #fffab0; }
 

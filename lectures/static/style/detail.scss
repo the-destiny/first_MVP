@@ -72,7 +72,7 @@ body{
         padding-left : 2%;
         font-family: 'Bazzi';
 
-        &__clicked{
+        &--clicked{
             background-color: rgba(63, 63, 63, 0.658);
             color : rgb(255, 250, 176);
         }

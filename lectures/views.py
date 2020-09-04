@@ -12,8 +12,8 @@ def detail(request, lecture_slug):
     return render(request, 'detail.html', {
         'lecture':lecture, 
         'lectures':lectures, 
-        'lectureId':lectureId,
         'slug':slug,
+        'lectureId' : lectureId,
         }
     )
 
@@ -27,22 +27,21 @@ def playlist_first(request, lecture_slug, lecture_id):
         lecture.is_clicked = True
         lecture.save()
 
-    for lecture in lectures:
-
-        if lecture.pk == lecture_id:
+    for item in lectures:
+        if item.pk == lecture_id:
             continue
 
-        if lecture.is_clicked == True:
-            lecture.is_clicked = False
-            lecture.save()
-
+        if item.is_clicked == True:
+            item.is_clicked = False
+            item.save()
+    
     data = {
-            'title':lecture.title,
-            'description':lecture.description,
-            'lecturer':lecture.lecturer,
-            'is_clicked':lecture.is_clicked,
-            'created_at':lecture.created_at,
-        }
+        'title':lecture.title,
+        'description':lecture.description,
+        'lecturer':lecture.lecturer,
+        'is_clicked':lecture.is_clicked,
+        'created_at':lecture.created_at,
+    }
 
     return JsonResponse({'data':data})
 
@@ -56,21 +55,21 @@ def playlist_clicked(request, lecture_slug, lecture_id):
         lecture.is_clicked = True
         lecture.save()
 
-    for lecture in lectures:
+    for item in lectures:
 
-        if lecture.pk == lecture_id:
+        if item.pk == lecture_id:
             continue
 
-        if lecture.is_clicked == True:
-            lecture.is_clicked = False
-            lecture.save()
-
+        if item.is_clicked == True:
+            item.is_clicked = False
+            item.save()
+    
     data = {
-            'title':lecture.title,
-            'description':lecture.description,
-            'lecturer':lecture.lecturer,
-            'is_clicked':lecture.is_clicked,
-            'created_at':lecture.created_at,
-        }
+        'title':lecture.title,
+        'description':lecture.description,
+        'lecturer':lecture.lecturer,
+        'is_clicked':lecture.is_clicked,
+        'created_at':lecture.created_at,
+    }
 
     return JsonResponse({'data':data})

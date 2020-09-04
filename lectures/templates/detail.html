@@ -33,72 +33,14 @@
         {% endfor %}    
     </div>
     
-    <script>
-        var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '524',
-                videoId: '{{lectureId}}',
-                suggestedQuality: 'hd1080',
-            });
-        }
-
-    </script>
 
     <script>
-        var buttons = document.getElementsByClassName("playlist__item");
-        var description = document.getElementsByClassName("description")[0];             
-        var title = document.getElementsByClassName("title")[0];             
-        var slug = '{{slug}}'
-        console.log(slug);
-        console.log(buttons[0]);
-
-        axios.get(`/lecture/detail/${slug}/1/`)
-            .then(function(response){
-                var data = response.data.data;
-                        
-                var title_h4 = document.createElement("h4");
-                title_h4.classList.add("title_0");
-                var description_p = document.createElement("p");  
-                description_p.classList.add("description_0");
-
-                var title_text = document.createTextNode(`${data.title}`);       
-                var description_text = document.createTextNode(`${data.description}`);        
-
-                title_h4.appendChild(title_text);
-                description_p.appendChild(description_text);
-
-                title.appendChild(title_h4);
-                description.appendChild(description_p);
-
-                if (!data.is_clicked){
-                    buttons[0].classList.add("playlist__item__clicked");
-                }
-            })
-
+        var slug = '{{slug}}';
+        var lectureId = '{{lectureId}}';
     </script>
 
-    <script>
-        function handleclick(value){
-            
-            console.log(value);
-            var lecture_clicked = document.getElementsByClassName("playlist__item");
-            console.log(lecture_clicked);
-
-            axios.get(`/lecture/detail/${slug}/${value}/clicked/`)
-                .then(function(response){
-                    var data = response.data.data;
-                    console.log(data);
-                })
-            }
-
-    </script>
+    <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
 </body>
 </html>
 
