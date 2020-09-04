@@ -7,3 +7,6 @@ def detail(request, lecture_slug):
     url = lecture.video
     lectureId = url.split('=')[1]
     return render(request, 'detail.html', {'lecture':lecture, 'lectureId':lectureId})
+
+def listup(request):
+    return render(request, 'listup.html')

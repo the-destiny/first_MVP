@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% load sass_tags %}
+<html>
+<head>
+  <link href="{% sass_src 'style/listup.scss' %}" rel= "stylesheet" type="text/css" />   
+</head>
+<body>
+  <a href="">
+    <div class="logo">
+      <img class src= "{% static 'img/clear_bg_logo.PNG' %}">
+      <span class="logo_name">퐁듀</span>
+    </div>
+  </a>
+  <a href="">
+    <div class="header">
+      <p>원하는 분야를 선택하세요!</p>    
+    </div>
+  </a>
+  <a href="">
+    <div class="coding">
+      <p>개발/코딩</p>
+    </div>
+  </a>
+  <a href="">
+    <div class="design">
+      <p>디자인/영상편집</p>
+    </div>
+  </a>
+  <a href="">
+    <div class="art">
+      <p>미술</p>
+    </div>
+  </a>
+</body>
