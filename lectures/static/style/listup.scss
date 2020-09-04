@@ -41,7 +41,7 @@ a {
   }
 }
 
-.logo {
+.logo_container {
   height: 0;
   color: black;
   img {
@@ -49,7 +49,7 @@ a {
     width: 100px;
     margin-left:10px;
   }
-  span {
+  .logo_name {
     font-family: $logo_font;
     font-size: 40px;
     position: absolute;
