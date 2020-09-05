@@ -33,7 +33,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     is_staff = models.BooleanField(
         db_index=True,
-        default=True,
+        default=False,
         verbose_name='스태프',
     )
     is_active = models.BooleanField(
