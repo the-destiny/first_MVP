@@ -102,9 +102,3 @@ STATICFILES_FINDERS = [
 SASS_PROCESSOR_ENABLED = True
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
-
-# Lazy signup
-AUTHENTICATION_BACKENDS = (
-  'django.contrib.auth.backends.ModelBackend',
-  'lazysignup.backends.LazySignupBackend',
-)
