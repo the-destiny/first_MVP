@@ -10,3 +10,6 @@ def detail(request, lecture_slug):
 
 def listup(request):
     return render(request, 'listup.html')
+
+def listup_categ(request):
+    return render(request, 'listup_categ.html')

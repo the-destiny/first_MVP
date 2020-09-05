@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'Bazzi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} 
+$logo_font: 'Bazzi';
+$category_size: 55px;
+
+* {
+  margin:0; padding:0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width:100%;
+  height: 100%;
+}
+
+.logo_container {
+  height: 10;
+  color: black;
+  border-bottom: 2px solid black;
+  .logo_img {
+    height: 90px;
+    width: 90px;
+    margin: 15px 0 0 10px;
+    position: relative;
+    z-index: 10;
+  }
+  .logo_name {
+    font-family: $logo_font;
+    font-size: 40px;
+    position: absolute;
+    top: 35px;
+  }
+}
+.container { 
+  width:100%;
+  height: 90%;
+  margin: 0 auto; 
+  position:relative; 
+}
+
+.categories {
+  list-style: none;
+}  
+.container ul li{
+  display:  inline-block;
+  width:33.33%; 
+  height: 15%;
+  float: left;  
+  text-align:center; 
+  background :#f9f9f9;
+  line-height:100px;
+}
+.container label{
+  display: block;
+  width: 100%; 
+  height: $category_size;
+  line-height: $category_size;
+  color: grey;
+  font-size: 20px;
+}
+.container input {
+  display: none;
+}
+
+.lectures{
+  width: 100%;
+  height: auto;
+  display: none; 
+  text-align: left; 
+  padding: 10px;
+  position: absolute; 
+  left: 0; 
+  top: $category_size;
+  box-sizing: border-box; 
+  border: 5px solid #f9f9f9;
+}
+
+.container .tabmanu:checked ~ label{
+  background: #ccc;
+  color: black;
+  font-weight: bold;
+}
+.container .tabmanu:checked ~ .lectures{
+  display: block;
+  .lectures {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.thumbnail, .description  {
+  float: left;
+  padding: 10px;
+  height: 250px;
+}
+
+.description {
+  width: 60%;
+}
+.thumbnail {
+  width: 40%;
+  img {
+  padding-top: 20px;
+  }
+}
+
+.column {
+  border-bottom-style: solid;
+  border-bottom-color: #ccc;
+}
