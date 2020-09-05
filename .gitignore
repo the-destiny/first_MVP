@@ -1,4 +1,4 @@
-##Django##
+# Django
 *.log
 *.pot
 *.pyc
@@ -9,3 +9,8 @@ media
 myvenv
 venv
 .DS_Store
+
+# Migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
