@@ -3,34 +3,46 @@
 {% load sass_tags %}
 <html>
 <head>
-  <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css"/>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="{% sass_src 'style/detail.scss' %}"
+        rel= "stylesheet" type="text/css" />   
 </head>
 <body>
-  <div class="header">
-    <img src= "{% static 'img/logo.png' %}">
-    <span>퐁듀</span>
-  </div>
-  <div class = "videos">
-    <div id="player" class="video"></div>
-  </div>
-  <div class = "lecture">
-    <div class="lecture__info tag"></div>
-    <hr>
-    <div class="lecture__info title"></div>
-    <div class="lecture__info description"></div>
-  </div>
-  <div class="playlist">
-    {% for lecture in lectures %}
-      <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item button">
-        <h4>{{lecture.title}}</h4>
-      </button>
-    {% endfor %}    
-  </div>
-  <script>
-    var slug = '{{slug}}';
-  </script>
-  <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
+    <div class="header">
+        <img src= "{% static 'img/logo.png' %}">
+        <span>퐁듀</span>
+    </div>
+
+    <section>
+        <div id="player" class="video"></div>
+        <div class="lecture_info tag">
+            # {{lecture.main_category}}&ensp; 
+            # {{lecture.sub_category}}
+        </div>
+        <hr>
+        <div class="lecture_info">
+            강의자 : {{lecture.lecturer}}
+        </div>
+        <div class="lecture_info">
+            뭘 배울 수 있나요?<br>
+            {{lecture.description}}
+        </div>
+    </section>
+    
+    <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '524',
+                videoId: '{{lectureId}}',
+                suggestedQuality: 'hd1080',
+            });
+        }
+    </script>
 </body>
 </html>
