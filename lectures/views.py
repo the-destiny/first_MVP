@@ -3,7 +3,7 @@ from lectures.models import Lecture
 from django.http import JsonResponse
 
 def detail(request, lecture_slug):
-    lectures = Lecture.objects.all()
+    lectures = Lecture.objects.all().order_by('created_at')
     lecture = Lecture.objects.get(pk=1)
     slug = lecture.slug
 

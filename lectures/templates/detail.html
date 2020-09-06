@@ -22,7 +22,7 @@
   </div>
   <div class="playlist">
     {% for lecture in lectures %}
-      <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item">
+      <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item button">
         <h4>{{lecture.title}}</h4>
       </button>
     {% endfor %}    
