@@ -72,10 +72,6 @@ class Lecture(models.Model):
         auto_now=True,
     )
 
-    is_clicked = models.BooleanField(
-        default=False,
-    )
-
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)
         super(Lecture, self).save(*args, **kwargs)
