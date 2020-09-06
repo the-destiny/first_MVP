@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 {% load static %}
 {% load sass_tags %}
-<html>
 <head>
-    <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="header">
-        <img src= "{% static 'img/logo.png' %}">
-        <span>퐁듀</span>
-    </div>
+  <div class="header">
+      <img src= "{% static 'img/logo.png' %}">
+      <span>퐁듀</span>
+  </div>
 
+  <div class = "videos">
     <div id="player" class="video"></div>
-    
-    <div class = "lecture">
-        <div class="lecture__info tag">
-        </div>
-        <hr>
-        <div class="lecture__info title">
-        </div>
-        <div class="lecture__info description">
-        </div>
-    </div>
-    
+  </div>
+  
+  <div class = "lecture">
+    <div class="lecture__info tag"></div>
+    <hr>
+    <div class="lecture__info title"></div>
+    <div class="lecture__info description"></div>
+  </div>
 
-    <div class = "playlist">
-        {% for lecture in lectures %}
-            <button onclick="handleclick('{{lecture.pk}}')" class = "playlist__item">
-                <h4>{{lecture.title}}</h4>
-            </button>
-        {% endfor %}    
-    </div>
-    
-
-    <script>
-        var slug = '{{slug}}';
-        var lectureId = '{{lectureId}}';
-    </script>
-
-    <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
+  <div class="playlist">
+    {% for lecture in lectures %}
+        <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item">
+            <h4>{{lecture.title}}</h4>
+        </button>
+    {% endfor %}    
+  </div>
+  
+  <script>
+    var slug = '{{slug}}';
+  </script>
+  <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
 </body>
-</html>
-

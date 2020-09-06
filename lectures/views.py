@@ -5,15 +5,12 @@ from django.http import JsonResponse
 def detail(request, lecture_slug):
     lectures = Lecture.objects.all()
     lecture = Lecture.objects.get(pk=1)
-    url = lecture.video
-    lectureId = url.split('=')[1]
     slug = lecture.slug
 
     return render(request, 'detail.html', {
         'lecture':lecture, 
         'lectures':lectures, 
         'slug':slug,
-        'lectureId' : lectureId,
         }
     )
 
@@ -21,6 +18,8 @@ def playlist_first(request, lecture_slug, lecture_id):
 
     lecture = Lecture.objects.get(pk=lecture_id)
     lectures = Lecture.objects.all()
+    url = lecture.video
+    lectureId = url.split('=')[1]
     data = {}
 
     if lecture.is_clicked == False:
@@ -41,6 +40,7 @@ def playlist_first(request, lecture_slug, lecture_id):
         'lecturer':lecture.lecturer,
         'is_clicked':lecture.is_clicked,
         'created_at':lecture.created_at,
+        'lectureId' : lectureId,
     }
 
     return JsonResponse({'data':data})
@@ -49,6 +49,8 @@ def playlist_clicked(request, lecture_slug, lecture_id):
 
     lecture = Lecture.objects.get(pk = lecture_id)
     lectures = Lecture.objects.all()
+    url = lecture.video
+    lectureId = url.split('=')[1]
     data = {}
 
     if lecture.is_clicked == False:
@@ -70,6 +72,8 @@ def playlist_clicked(request, lecture_slug, lecture_id):
         'lecturer':lecture.lecturer,
         'is_clicked':lecture.is_clicked,
         'created_at':lecture.created_at,
+        'lectureId' : lectureId,
     }
 
     return JsonResponse({'data':data})
+    
