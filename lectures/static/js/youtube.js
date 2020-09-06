@@ -7,10 +7,10 @@ handleclick_fisrt().then(data=>{
     
   var player;
   window.onYouTubeIframeAPIReady = function() {
-      player = new YT.Player('player', {
-          height: '524',
-          videoId: lectureId,
-          suggestedQuality: 'hd1080',
-      });
+    player = new YT.Player('player', {
+      height: '524',
+      videoId: lectureId,
+      suggestedQuality: 'hd1080',
+    });
   }
 })
