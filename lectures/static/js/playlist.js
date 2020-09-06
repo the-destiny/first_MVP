@@ -76,8 +76,6 @@ function get_data(value){
             description_step.remove();
           }
 
-          console.log(step);
-
           if(lectures[step].classList.contains("playlist__item--clicked")){
             lectures[step].classList.remove("playlist__item--clicked");
           }

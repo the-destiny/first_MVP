@@ -2,13 +2,13 @@
 {% load static %}
 {% load sass_tags %}
 <head>
-  <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css" />
+  <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css"/>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="header">
-      <img src= "{% static 'img/logo.png' %}">
-      <span>퐁듀</span>
+    <img src= "{% static 'img/logo.png' %}">
+    <span>퐁듀</span>
   </div>
   <div class = "videos">
     <div id="player" class="video"></div>
@@ -21,9 +21,9 @@
   </div>
   <div class="playlist">
     {% for lecture in lectures %}
-        <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item">
-            <h4>{{lecture.title}}</h4>
-        </button>
+      <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item">
+        <h4>{{lecture.title}}</h4>
+      </button>
     {% endfor %}    
   </div>
   <script>
