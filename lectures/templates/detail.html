@@ -10,18 +10,15 @@
       <img src= "{% static 'img/logo.png' %}">
       <span>퐁듀</span>
   </div>
-
   <div class = "videos">
     <div id="player" class="video"></div>
   </div>
-  
   <div class = "lecture">
     <div class="lecture__info tag"></div>
     <hr>
     <div class="lecture__info title"></div>
     <div class="lecture__info description"></div>
   </div>
-
   <div class="playlist">
     {% for lecture in lectures %}
         <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item">
@@ -29,7 +26,6 @@
         </button>
     {% endfor %}    
   </div>
-  
   <script>
     var slug = '{{slug}}';
   </script>
