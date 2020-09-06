@@ -73,7 +73,7 @@ class Lecture(models.Model):
     )
 
     is_clicked = models.BooleanField(
-        default=False
+        default=False,
     )
 
     def save(self, *args, **kwargs):
