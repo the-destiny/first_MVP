@@ -100,11 +100,11 @@ a:hover
 
 .button{
   transition-duration: 0.4s;
-}
 
-.button:hover{
-  background-color: rgba(63, 63, 63, 0.658);
-  color : rgb(255, 250, 176);
+  &:hover{
+    background-color: rgba(63, 63, 63, 0.658);
+    color : rgb(255, 250, 176);
+  }
 }
 
 h4 {

@@ -1,11 +1,11 @@
 handleclick_fisrt().then(data=>{
-  var lectureId = data.lectureId;
-  var tag = document.createElement('script');
+  let lectureId = data.lectureId;
+  let tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
+  let firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     
-  var player;
+  let player;
   window.onYouTubeIframeAPIReady = function() {
     player = new YT.Player('player', {
       height: '524',

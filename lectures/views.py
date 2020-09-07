@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from lectures.models import Lecture
 from django.http import JsonResponse
 
+
 def detail(request, lecture_slug):
     lectures = Lecture.objects.all().order_by('created_at')
     lecture = Lecture.objects.get(pk=1)
@@ -15,7 +16,6 @@ def detail(request, lecture_slug):
     )
 
 def playlist_first(request, lecture_slug, lecture_id):
-
     lecture = Lecture.objects.get(pk=lecture_id)
     lectures = Lecture.objects.all()
     url = lecture.video
@@ -76,4 +76,3 @@ def playlist_clicked(request, lecture_slug, lecture_id):
     }
 
     return JsonResponse({'data':data})
-    

@@ -1,29 +1,27 @@
-var buttons = document.getElementsByClassName("playlist__item");
-var description = document.getElementsByClassName("description")[0];             
-var title = document.getElementsByClassName("title")[0];  
+let playlistButtons = document.getElementsByClassName("playlist__item");
+let lectureDescription = document.getElementsByClassName("description")[0];             
+let lectureTitle = document.getElementsByClassName("title")[0];  
 
 window.handleclick_fisrt = function (){
   return axios.get(`/lecture/detail/${slug}/1/`)
     .then(
       function(response){
-        var data = response.data.data;
+        let data = response.data.data;
                             
-        var title_h4 = document.createElement("h4");
-        title_h4.classList.add("title_0");
-        var description_p = document.createElement("p");  
-        description_p.classList.add("description_0");
+        let lectureTitle_h4 = document.createElement("h4");
+        let lectureDescription_p = document.createElement("p");  
+        lectureTitle_h4.classList.add("title_0");
+        lectureDescription_p.classList.add("description_0");
 
-        var title_text = document.createTextNode(`${data.title}`);       
-        var description_text = document.createTextNode(`${data.description}`);        
+        let lectureTitle_text = document.createTextNode(`${data.title}`);       
+        let lectureDescription_text = document.createTextNode(`${data.description}`);        
+        lectureTitle_h4.appendChild(lectureTitle_text);
+        lectureDescription_p.appendChild(lectureDescription_text);
 
-        title_h4.appendChild(title_text);
-        description_p.appendChild(description_text);
-
-        title.appendChild(title_h4);
-        description.appendChild(description_p);
-
+        lectureTitle.appendChild(lectureTitle_h4);
+        lectureDescription.appendChild(lectureDescription_p);
         if (data.is_clicked) {
-          buttons[0].classList.add("playlist__item--clicked");
+          playlistButtons[0].classList.add("playlist__item--clicked");
         }
 
       return response.data.data;
@@ -32,52 +30,47 @@ window.handleclick_fisrt = function (){
 };
 
 function get_data(value){
-  var lectures = document.getElementsByClassName("playlist__item");
+  let playlists = document.getElementsByClassName("playlist__item");
   
   return axios.get(`/lecture/detail/${slug}/${value}/clicked/`)
     .then(
       function(response) {
-        var data = response.data.data;
-        console.log(data);
-                      
-        lectures[value-1].classList.add("playlist__item--clicked");
+        let data = response.data.data;
 
-        var title_h4 = document.createElement("h4"); 
-        title_h4.classList.add(`title_${value-1}`);
-        var description_p = document.createElement("p");
-        description_p.classList.add(`description_${value-1}`);
+        let lectureTitle_h4 = document.createElement("h4");
+        let lectureDescription_p = document.createElement("p");
+        lectureTitle_h4.classList.add(`title_${value-1}`);
+        lectureDescription_p.classList.add(`description_${value-1}`);
 
-        var title_text = document.createTextNode(`${data.title}`);    
-        var description_text = document.createTextNode(`${data.description}`);    
-        title_h4.appendChild(title_text);
-        description_p.appendChild(description_text);
+        let lectureTitle_text = document.createTextNode(`${data.title}`);
+        let lectureDescription_text = document.createTextNode(`${data.description}`);
+        lectureTitle_h4.appendChild(lectureTitle_text);
+        lectureDescription_p.appendChild(lectureDescription_text);
 
         is_title = document.getElementsByClassName(`title_${value-1}`)[0];
         is_description = document.getElementsByClassName(`description_${value-1}`)[0];
-
         if (is_title && is_description) {
         } else {
-            title.appendChild(title_h4);
-            description.appendChild(description_p);
+          lectureTitle.appendChild(lectureTitle_h4);
+          lectureDescription.appendChild(lectureDescription_p);
         }
 
-        var step=0;
+        playlists[value-1].classList.add("playlist__item--clicked");
 
-        for (step; step < lectures.length; step++ ) {
+        for (let step=0; step < playlists.length; step++ ) {
           if (step == value-1) {
             continue;
           } 
 
-          title_step = document.getElementsByClassName(`title_${step}`)[0];
-          description_step = document.getElementsByClassName(`description_${step}`)[0];
+          playlistTitle = document.getElementsByClassName(`title_${step}`)[0];
+          playlistDescription = document.getElementsByClassName(`description_${step}`)[0];
 
-          if (title_step && description_step) {
-            title_step.remove();
-            description_step.remove();
+          if (playlistTitle && playlistDescription) {
+            playlistTitle.remove();
+            playlistDescription.remove();
           }
-
-          if(lectures[step].classList.contains("playlist__item--clicked")){
-            lectures[step].classList.remove("playlist__item--clicked");
+          if(playlists[step].classList.contains("playlist__item--clicked")){
+            playlists[step].classList.remove("playlist__item--clicked");
           }
         };
 
@@ -89,10 +82,8 @@ function get_data(value){
 function handleclick(value){
   get_data(value)
     .then(function(response){
-
-      var lectureId = response.lectureId;
-      console.log(lectureId);
-      var iframe = document.getElementsByTagName("iframe")[0];
+      let lectureId = response.lectureId;
+      let iframe = document.getElementsByTagName("iframe")[0];
       iframe.src = `https://www.youtube.com/embed/${lectureId}?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A8000&widgetid=1` 
     })
 }
