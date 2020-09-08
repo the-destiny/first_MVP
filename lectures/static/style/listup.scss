@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Bazzi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} 
+$logo_font: 'Bazzi';
+
+@mixin category_img {
+  background-repeat: no-repeat;
+  height: 30%;
+  width: 100%;
+  background-size: cover;
+  display: inline-table;
+  vertical-align: middle;
+  position: relative;
+  z-index: 0;
+}
+
+@mixin category {
+  color: white;
+  margin: 0;
+  text-align: center;
+  font-family: $logo_font;
+  font-size: 80px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    color: black;
+  }
+}
+
+.logo_container {
+  height: 0;
+  color: black;
+  .logo_img {
+    height: 150px;
+    width: 150px;
+    margin: 15px 0 0 10px;
+    position: relative;
+    z-index: 10;
+  }
+  .logo_name {
+    font-family: $logo_font;
+    font-size: 52px;
+    position: absolute;
+    top: 35px;
+  }
+}
+
+.header {
+  height: 7%;
+  &__banner {
+    font-size: 52px;
+    text-align: center;
+    padding-top: 45px;
+    font-family: $logo_font;
+    color: black;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.coding, .design, .art {
+  @include category_img;
+  .large_category {
+    @include category;
+  }
+}
+
+.coding {
+  background-image: url(" ../img/coding.jpg");
+}
+
+.design {
+  background-image: url(" ../img/design.jpg");
+}
+
+.art {
+  background-image: url(" ../img/art.jpg");
+}
