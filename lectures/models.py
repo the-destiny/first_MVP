@@ -71,6 +71,9 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
+    is_clicked = models.BooleanField(
+        default=False,
+    )
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_category)

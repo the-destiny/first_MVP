@@ -1,0 +1,20 @@
+{% load sass_tags %}
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% sass_src '../static/style/homepage.scss' %}" type="text/css"/>
+</head>
+<body>
+  <div class="home_bg_img">  
+    <img class="logo" src="{% static 'img/fondue.png' %}"> 
+    <p class="home_content">다양한 강의를 찍어먹을 수 있는 퐁듀입니다.<br><br>
+       관심있는 분야의 강의를 수강하고<br><br>무료 이용권을 받아보세요!</p>
+    <div class="home_btn_wrapper">
+      <form action="{% url 'home' %}" method='POST'>
+        {% csrf_token %}
+        <button class="home_btn" type="submit">만나러 가기</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
