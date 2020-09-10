@@ -73,3 +73,7 @@ def playlist_clicked(request, lecture_slug, lecture_id):
         'lectureId' : lectureId,
     }
     return JsonResponse({'data':data})
+
+  
+def test(request):
+    return render(request, 'test2.html')

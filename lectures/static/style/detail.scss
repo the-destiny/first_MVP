@@ -1,3 +1,4 @@
+@import "./setup.scss";
 @font-face {
     font-family: 'Bazzi';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
@@ -5,114 +6,108 @@
     font-style: normal;
 }   
 
-body{
+
+html,
+body {
   margin: 0;
-  @media (min-width: 1050px){
-    padding: 0 250px;
-  }
+  width: 100%;
+  height: 100%;
 }
 
 .container{
-  display: grid;
-  grid-template-rows: 1fr 5fr 2fr 2fr;
-  grid-template-areas: "header"
-                       "video"
-                       "lecture"
-                       "playlist";
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media (min-width: 1050px){
+    padding: 0 350px;
+  }
 }
 
 .header {
-  grid-area: header;
-  display: table;
-  img {
-    height: 15vw;
-  }
-  span {
-    font-family: 'Bazzi';
-    font-size: 10vw;
-    display: table-cell;
-    vertical-align: middle;
-  }
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 2vw;
+  height: 6vh;
 }
 
-.video {
-  grid-area : video;
-  text-align: center;
-  left: 0px;
-  width: 100%;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+.iframe__container {
+  overflow: hidden;
+  padding-top: 56.25%; /* 16:9*/
+  position: relative;
 }
-    
+
+.iframe__container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
 .lecture {
-  grid-area:lecture;
+  display: inline-flex;
+  flex-direction: column;
+  border-bottom: 1vh solid rgb(247, 247, 247);
 
-  &__info {
-    margin: 30px 60px;
-    font-family: 'Bazzi';
-    font-size: 30px;
+  &__title {
+    padding: 5vw 0 0 5vw;
+  }
 
-    &.tag {
-      color: #0067a3;
+  &__description {
+    padding: 2vw 0 0 5vw;
+  }
+
+  &__lecturer {
+    height: 7vh;
+    display: inline-flex;
+    padding: 2vw 0 0 3vw;
+    flex-direction: row;
+
+    .img{
+      height: 7vh;
+    }
+
+    .info{
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: start;
+      padding: 3vw 0 0 2vw;
     }
   }
 }
 
-.header{
-  display: table;
-  img{
-    height: 150px;
-  }
-  span{
-    font-family: 'Bazzi';
-    font-size: 100px;
-    display: table-cell;
-    vertical-align: middle;
-  }
-}
+.class{
+  width: 100%;
 
-.playlist {
-  grid-area: playlist;
+  &__nav{
+    height: 7vh;
+    border-bottom: 0.2vh solid rgb(247, 247, 247);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding-left: 3vw;
+  }
 
-  &__item {
-    height : 100px;
+  &__playlist {
     width : 100%;
-    border-bottom: 1px solid black;
-    font-size : 36px;
-    padding-left : 2%;
-    font-family: 'Bazzi';
-
-    &--clicked {
-      background-color: rgba(63, 63, 63, 0.658);
-      color : rgb(255, 250, 176);
+    display: inline-flex;
+    flex-direction: column;
+  
+    .playlist__item {
+      width : 100%;
+      border-bottom: 1px solid black;
+      padding-left : 2vw;
+      height: 7vh;
+      font-family: 'Bazzi';
+  
+      .playist__item--clicked {
+        background-color: rgba(175, 175, 175, 0.658);
+        color : rgb(255, 252, 214);
+      }
     }
   }
 }
 
-button,
-h4,
-p,
-a,
-a:hover
-.button:hover{
-  all: unset;
-}
-
-.button{
-  transition-duration: 0.4s;
-
-  &:hover{
-    background-color: rgba(63, 63, 63, 0.658);
-    color : rgb(255, 250, 176);
-  }
-}
-
-h4 {
-  font-size: 48px;
-  font-family: 'Bazzi';
-}
-
-p {
-  font-size : 36px;
-  font-family: 'Bazzi';
-}

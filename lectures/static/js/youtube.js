@@ -8,7 +8,6 @@ handleclick_fisrt().then(data=>{
   let player;
   window.onYouTubeIframeAPIReady = function() {
     player = new YT.Player('player', {
-      height: '524',
       videoId: lectureId,
       suggestedQuality: 'hd1080',
     });
