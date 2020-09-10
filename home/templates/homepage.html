@@ -10,18 +10,18 @@
 </head>
 <body>
   <header class="header">
-    <p class="header__logo"> FONDUE </p>
+    <h5 class="header__logo"> FONDUE </h5>
   </header>
   <section class="home">
     <div class="home-container">
-      <h5 class="home-container__text"> 
+      <h4 class="home-container__text"> 
         다양한 강의를 <br/>
         찍어먹을 수 있는 <br/>
         <b>퐁듀</b>입니다.<br/>
         <br/>
         관심분야의 강의를 수강하고 <br/>
         <b>무료 이용권</b>을 받아보세요! 
-      </h5>
+      </h4>
       <form class="home-container__form" action="{% url 'home' %}" method='POST'>
         {% csrf_token %}
         <button class="home_btn" type="submit"> <b>만나러 가기</b> <i class="fas fa-angle-down fa-lg"></i> </button>

@@ -10,10 +10,10 @@ body, html {
   position: fixed;
   top: 0;
   padding: 20px 25px;
-  &__logo {
-    font-family: 'TmoneyRoundWindExtraBold';
-    font-size: 20px;
-  }
+}
+
+.header__logo {
+  font-family: 'TmoneyRoundWindExtraBold';
 }
 
 .home {
@@ -31,26 +31,24 @@ body, html {
   width: 70%;
   max-width: 300px;
   text-align: left;
-  &__text {
-    font-size: 24px;
-    font-weight: $thin;
-  }
-  &__form {
-    width: 100%;
-  }
-  .home_btn {
-    width: 100%;
-    margin-top: 42px;
-    padding: 0.6rem;
-    border: 0;
-    border-radius: 10px;
-    font-size: 18px;
-    text-decoration: none;
-    background: $maincolor;
-    color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
+}
+
+.home-container__text {
+  font-weight: $thin;
+}
+
+.home_btn {
+  width: 100%;
+  margin-top: 42px;
+  padding: 0.6rem;
+  border: 0;
+  border-radius: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  background: $maincolor;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
