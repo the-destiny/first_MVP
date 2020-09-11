@@ -1,15 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from lectures.models import Lecture
+from accounts.models import User
 from django.http import JsonResponse
 
 
 def detail(request, lecture_slug):
     lectures = Lecture.objects.all().order_by('created_at')
     lecture = Lecture.objects.get(pk=1)
+    user_info = User.objects.get(is_active=True)
     slug = lecture.slug
     return render(request, 'detail.html', {
         'lecture':lecture, 
         'lectures':lectures, 
+        'user_info':user_info,
         'slug':slug,
         }
     )
