@@ -3,81 +3,90 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <link href="{% sass_src '../static/style/listup_detail.scss' %}" rel="stylesheet" type="text/css">
-  <script src="https://kit.fontawesome.com/b000af9e2e.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
   <title>Fondue 1st MVP</title>
+  <link href="{% sass_src '../static/style/listup_detail.scss' %}" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/b000af9e2e.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="header__container">
-    <a href="" class="icon_back">&lt;</a>
+    <a href="" class="icon-back">&#12296;</a>
     <div class="categ title_on">개발/코딩</div>
     <div class="categ">디자인/영상편집</div>
     <div class="categ">미술</div>
   </div>
+
   <div class="container">
     <div class="tab_btn__container">
-      <button class="tab_btn coding tab_on" type="button"><span class="tab_btn_title">개발/코딩</span></button>
-      <button class="tab_btn design" type="button"><span class="tab_btn_title">디자인/영상편집</span></button>
-      <button class="tab_btn art" type="button"><span class="tab_btn_title">미술</span></button>
+      <button class="tab_btn coding tab_on" type="button">
+        <span class="tab_btn_title">개발/코딩</span>
+      </button>
+      <button class="tab_btn design" type="button">
+        <span class="tab_btn_title">디자인/영상편집</span>
+      </button>
+      <button class="tab_btn art" type="button">
+        <span class="tab_btn_title">미술</span>
+      </button>
     </div>
+
     <a href="">
     <div class="content__container coding content_on">
       <div class="content__container_row">
         <div class="content__container_thumbnail-column">
           <div class="thumbnail__wrapper">
-            <img class="thumbnail__wrapper_img" src="{% static 'img/coding.jpg' %}">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
           </div>
         </div>
-        <div class="content__container_description-column">
-          <div class="description__container">
-            <p class="description__container_title">파이썬</p>
-            <p class="description__container_lectuerer">강의자</p>
-            <p class="description__container_detail">프로그래밍파이썬으로 다양한 게임을 만들어보아요!</p>
+        <div class="content__container_desc-column">
+          <div class="desc__container">
+            <p class="desc__container_title">파이썬</p>
+            <p class="desc__container_lectuerer">강의자</p>
+            <p class="desc__container_detail">이 커리큘럼을 통해서는 파이썬 프로그램 설치와 파이썬 문법을 배울 수 있어요</p>
           </div>
         </div>
       </div>
     </div>
     </a>
     <a href="">
-      <div class="content__container design">
-        <div class="content__container_row">
-          <div class="content__container_thumbnail-column">
-            <div class="thumbnail__wrapper">
-              <img class="thumbnail__wrapper_img" src="{% static 'img/coding.jpg' %}">
-            </div>
+    <div class="content__container design">
+      <div class="content__container_row">
+        <div class="content__container_thumbnail-column">
+          <div class="thumbnail__wrapper">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
           </div>
-          <div class="content__container_description-column">
-            <div class="description__container">
-              <p class="description__container_title">일러스트레이터</p>
-              <p class="description__container_lectuerer">강의자</p>
-              <p class="description__container_detail">이미지를 수정해요</p>
-            </div>
+        </div>
+        <div class="content__container_desc-column">
+          <div class="desc__container">
+            <p class="desc__container_title">일러스트레이터</p>
+            <p class="desc__container_lectuerer">강의자</p>
+            <p class="desc__container_detail">이미지를 수정해요</p>
           </div>
         </div>
       </div>
+    </div>
     </a>
     <a href="">
-      <div class="content__container art">
-        <div class="content__container_row">
-          <div class="content__container_thumbnail-column">
-            <div class="thumbnail__wrapper">
-              <img class="thumbnail__wrapper_img" src="{% static 'img/coding.jpg' %}">
-            </div>
+    <div class="content__container art">
+      <div class="content__container_row">
+        <div class="content__container_thumbnail-column">
+          <div class="thumbnail__wrapper">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
           </div>
-          <div class="content__container_description-column">
-            <div class="description__container">
-              <p class="description__container_title">연필</p>
-              <p class="description__container_lectuerer">강의자</p>
-              <p class="description__container_detail">연필로그림그리자</p>
-            </div>
+        </div>
+        <div class="content__container_desc-column">
+          <div class="desc__container">
+            <p class="desc__container_title">연필</p>
+            <p class="desc__container_lectuerer">강의자</p>
+            <p class="desc__container_detail">연필로그림그리자</p>
           </div>
         </div>
       </div>
+    </div>
     </a>
   </div>
-  <script type="text/javascript" src="./images/jquery-1.7.1.min.js"></script>
+
   <script>
     $('.categ').hide();
     $('.content__container').hide();
