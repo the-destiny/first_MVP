@@ -19,8 +19,8 @@ def listup(request):
     return render(request, 'listup.html')
 
   
-def listup_categ(request):
-    return render(request, 'listup_categ.html')
+def listup_detail(request):
+    return render(request, 'listup_detail.html')
   
   
 def playlist_first(request, lecture_slug, lecture_id):

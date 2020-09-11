@@ -1,121 +1,125 @@
-@font-face {
-  font-family: 'Bazzi';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-} 
-$logo_font: 'Bazzi';
-$category_size: 55px;
+@mixin smartphone_font($size, $font-weight){
+  @media (min-width: 320px) and (max-width: 480px) {
+    font-size: $size;
+    font-weight: $font-weight;
+  }
+}
 
-* {
-  margin:0; padding:0;
-  box-sizing: border-box;
+@mixin FLEX_CENTER {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin FLEX_COLUMN {
+  display: inline-flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  align-items: left;
+  justify-content: center;
 }
 
 body, html {
-  width:100%;
-  height: 100%;
-}
-
-.logo_container {
-  height: 10;
-  color: black;
-  border-bottom: 2px solid black;
-  .logo_img {
-    height: 90px;
-    width: 90px;
-    margin: 15px 0 0 10px;
-    position: relative;
-    z-index: 10;
-  }
-  .logo_name {
-    font-family: $logo_font;
-    font-size: 40px;
-    position: absolute;
-    top: 35px;
-  }
-}
-
-.container { 
-  width:100%;
-  height: 90%;
-  margin: 0 auto; 
-  position:relative; 
-}
-
-.categories {
-  list-style: none;
-}  
-
-.container ul li{
-  display:  inline-block;
-  width:33.33%; 
-  height: 15%;
-  float: left;  
-  text-align:center; 
-  background :#f9f9f9;
-  line-height:100px;
-}
-
-.container label{
-  display: block;
-  width: 100%; 
-  height: $category_size;
-  line-height: $category_size;
-  color: grey;
-  font-size: 20px;
-}
-
-.container input {
-  display: none;
-}
-
-.lectures{
   width: 100%;
-  height: auto;
-  display: none; 
-  text-align: left; 
-  padding: 10px;
-  position: absolute; 
-  left: 0; 
-  top: $category_size;
-  box-sizing: border-box; 
-  border: 5px solid #f9f9f9;
+  height: 100%;
+  margin: 0;
 }
 
-.container .tabmanu:checked ~ label{
-  background: #ccc;
+a {
+  text-decoration: none;
   color: black;
-  font-weight: bold;
 }
 
-.container .tabmanu:checked ~ .lectures{
-  display: block;
-  .lectures {
-    content: "";
-    display: table;
-    clear: both;
+.header__container {
+  @include FLEX_CENTER;
+  @include smartphone_font(20px, bolder);
+  height: 6.5%;
+  
+  .icon_back {
+    position: absolute;
+    left: 10px;
+    padding: 3% 5%;
+    color: gray;
   }
 }
 
-.thumbnail, .description  {
-  float: left;
-  padding: 10px;
-  height: 250px;
-}
+.container {
+  height: 93.5%;
 
-.description {
-  width: 60%;
-}
+  .tab_btn__container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
 
-.thumbnail {
-  width: 40%;
-  img {
-  padding-top: 20px;
+    .tab_btn {
+      @include smartphone_font(15px, normal);
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+      background: none;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      width: 80px;
+      height: 40px;
+      transition: 0.3s all;
+
+      &:hover {
+        color:black;
+      }
+    }
+
+    .tab_on {
+      .tab_btn_title{
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+        font-weight: 700;
+        color: black;
+      }
+    }
   }
 }
 
-.column {
-  border-bottom-style: solid;
-  border-bottom-color: #ccc;
+.content__container {
+  display: flex;
+
+  &_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  &_thumbnail-column {
+    @include FLEX_COLUMN;
+    column-width: 40%;
+    flex: 1;
+
+    .thumbnail__wrapper_img {
+      height: 150px;
+      width: 150px;
+      padding: 10px;
+    }
+  } 
+    
+  &_description-column {
+    @include FLEX_COLUMN;
+    flex: 2;
+    padding-right: 10px;
+    column-width: 60%;
+
+    .description__container {
+      &_title {
+        @include smartphone_font(16px, bolder);
+      }
+      &_lectuerer {
+        @include smartphone_font(14px, normal)
+      }
+    }
+  }
 }
