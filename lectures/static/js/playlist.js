@@ -1,6 +1,8 @@
 let playlistButtons = document.getElementsByClassName("playlist__item");
 let lectureDescription = document.getElementsByClassName("lecture__description")[0];             
 let lectureTitle = document.getElementsByClassName("lecture__title")[0];  
+let playlists = document.getElementsByClassName("playlist__item");
+let playlistItems = document.getElementsByClassName("item__container");
 
 window.handleclick_fisrt = function (){
   return axios.get(`/lecture/detail/${slug}/1/`)
@@ -23,6 +25,14 @@ window.handleclick_fisrt = function (){
         if (data.is_clicked) {
           playlistButtons[0].classList.add("playlist__item--clicked");
         }
+
+        for (let step=0; step < playlists.length; step++ ) {
+          if(playlistButtons[step].classList.contains("playlist__item--clicked")){
+            continue;
+          }else{
+            playlistButtons[step].classList.add("playlist__item--notclicked");
+          }
+        };
 
       return response.data.data;
       }
@@ -56,6 +66,7 @@ function get_data(value){
         }
 
         playlists[value-1].classList.add("playlist__item--clicked");
+        playlists[value-1].classList.remove("playlist__item--notclicked");
 
         for (let step=0; step < playlists.length; step++ ) {
           if (step == value-1) {
@@ -71,6 +82,9 @@ function get_data(value){
           }
           if(playlists[step].classList.contains("playlist__item--clicked")){
             playlists[step].classList.remove("playlist__item--clicked");
+          }
+          if(!playlists[step].classList.contains("playlist__item--notclicked")){
+            playlists[step].classList.add("playlist__item--notclicked");
           }
         };
 

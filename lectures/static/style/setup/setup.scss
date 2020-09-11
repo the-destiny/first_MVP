@@ -12,7 +12,8 @@ summary, time, mark, audio, video
   margin: 0; 
   padding: 0; 
   border: 0; 
-  font-size: 100%; 
+  font-size: 100%;
+  all: unset;
 } 
 
 article, aside, details, figcaption, figure, 
@@ -55,17 +56,8 @@ a:hover
   all: unset;
 }
 
-.button{
-  transition-duration: 0.4s;
-
-  &:hover{
-    background-color: rgba(63, 63, 63, 0.658);
-    color : rgb(255, 250, 176);
-  }
-}
-
 h4 {
-  font-size: 32px;
+  font-size: 18px;
   font-family: 'Bazzi';
 }
 
@@ -73,3 +65,14 @@ p {
   font-size : 16px;
   font-family: 'Bazzi';
 }
+
+button {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: 'Bazzi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}   

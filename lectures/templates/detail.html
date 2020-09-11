@@ -2,78 +2,69 @@
 {% load static %}
 {% load sass_tags %}
 <html>
-<head>
-  <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
+  <head>
+    <link href="{% sass_src 'style/detail.scss' %}" rel= "stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-<body>
-  <div class = "container">
-    <div class="header">
-      <div class="header__left">
-        <img src= "{% static 'img/backspace.png' %}">
+  <body>
+    <div class = "container">
+      <div class="header">
+        <a href="{% url 'listup_categ' %}">
+          <img src= "{% static 'img/backspace.png' %}">
+        </a>
       </div>
-    </div>
-    <div class = "iframe__container">
-      <div id="player" class="video"></div>
-    </div>
-    <div class = "lecture">
-      <div class="lecture__title"></div>
-      <div class="lecture__description"></div>
-      <div class="lecture__lecturer">
-        <img class="img" src= "{% static 'img/lecturer_img.png' %}">
-        <div class="info">
-          <div class="name">
-            <p>나노코딩</p>
-          </div>
-          <div class="description">
-            <p>안녕하세요 나노코딩입니다</p>
+      <div class = "iframe__container">
+        <div id="player" class="video"></div>
+      </div>
+      <div class = "lecture">
+        <div class="lecture__title"></div>
+        <div class="lecture__description"></div>
+        <div class="lecture__lecturer">
+          <img class="img" src= "{% static 'img/lecturer_img.png' %}">
+          <div class="info__container">
+            <div class="info">
+              <div class="info__name">
+                <h4>나노코딩</h4>
+              </div>
+              <div class="info__description">
+                <p>안녕하세요 나노코딩입니다</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="class">
       <div class="class__nav">
-        <p>클래스 소개</p>
-        <p>커리큘럼</p>
+        <div class="class__nav__info">
+          <button onclick="infoClick()">
+            <h4>클래스 소개</h4>
+          </button>  
+        </div>
+        <div class="class__nav__playlist">
+          <button onclick="playlistClick()">
+            <h4>커리큘럼</h4>
+          </button>
+        </div>
       </div>
-      <div class="class__playlist">
+      <div class="class__info">
+        <p>이건 이거야</p>
+      </div>
+      <div class="playlist">
         {% for lecture in lectures %}
           <button onclick="handleclick('{{lecture.pk}}')" class="playlist__item button">
-            <h4>{{lecture.title}}</h4>
+            <div class="item__container">
+              <h4>{{lecture.title}}</h4>
+            </div>
           </button>
-        {% endfor %}    
+        {% endfor %}
       </div>
     </div>
-  </div>
-  <script>
-    var slug = '{{slug}}';
-  </script>
-  <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
-  <script>
-    //Javascript
-    //최초 로드 시 iframe 높이값 비율에 맞게 세팅
-    var videoIframe = document.getElementsByClassName('video')[0];
-    var videoContainer = document.getElementsByClassName('videos')[0];
-    var iframeWidth = videoIframe.clientWidth;
-    console.log(iframeWidth);
-    var iframe_responsiveHeight = iframeWidth * 0.5625;
-    console.log(iframe_responsiveHeight);
-    var container_responsiveHeight = videoContainer.offsetWidth * 0.5625;
-    videoIframe.style.height = iframe_responsiveHeight;
-    videoContainer.setAttribute('height', container_responsiveHeight);
-
-    //브라우저 리사이즈 시 iframe 높이값 비율에 맞게 세팅
-    window.addEventListener('resize', function(){
-      var videoIframe = document.getElementById('player');
-      var iframeWidth = videoIframe.clientWidth;
-      console.log(iframeWidth);
-      var iframe_responsiveHeight = iframeWidth * 0.5625;
-      console.log(iframe_responsiveHeight);
-      videoIframe.style.height = iframe_responsiveHeight;
-    });
-  </script>
-</body>
+    <script>
+      var slug = '{{slug}}';
+    </script>
+    <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/class.js' %}"></script>
+  </body>
 </html>
