@@ -31,29 +31,27 @@
       </button>
     {% endfor %}    
   </div>
-
   <!-- 클릭하면 시청횟수가 +1되도록 임의 설정-->
   <form action="{% url 'detail' lecture.slug %}" method=POST>
     {% csrf_token %}
     <input type=submit name="plus" value="+1">
   </form>
   <!--임의 설정 끝 -->
-
-  <div class="trigger_modal">
-    <div class="trigger_modal_header">
+  <div class="trigger-modal">
+    <div class="trigger-modal__header">
     서비스가 마음에 드셨나요?
     </div>
-    <div class="trigger_modal_body">
+    <div class="trigger-modal__body">
     실제 서비스 런칭 시 한달 무료 이용권을 드립니다.</br>
     이메일을 작성해서 신청하시겠습니까?
     </div>
-    <form action="" method="POST">
-      <div class="trigger_input_email">
+    <form action="{% url 'detail' lecture.slug %}" method="POST" class="trigger-modal__form">
+      <div class="trigger-modal__form__input-email">
         {% csrf_token %}
-        <input type="text" placeholder="E-mail">
+        <input type="text" placeholder="E-mail" name="email">
       </div>
-      <input type="submit" value="제출하기"></input>
-      <input type="button" class="close" value="건너뛰기>"></input>
+      <input type="submit" value="제출하기" class="trigger-modal__form__submit"></input>
+      <input type="button" value="건너뛰기>" class="trigger-modal__form__close"></input>
     </form>
   </div>
   <script>
