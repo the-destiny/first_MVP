@@ -40,14 +40,14 @@ a {
   }
 }
 
-.tab-btn {
+.tab-menu {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid lightgray;
   border-top: 1px solid lightgray;
   height: 5.2%;
 
-  .tab-btn__button {
+  .tab-menu__button {
     @include smartphone_font(14px, normal);
     margin: 0;
     padding: 0;
@@ -66,7 +66,7 @@ a {
   }
 
   .tab_on {
-    .tab-btn__title{
+    .tab-menu__title{
       padding-bottom: 12px;
       border-bottom: 2px solid #000000;
       font-weight: bold;

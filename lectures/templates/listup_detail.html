@@ -18,15 +18,15 @@
     <div class="header__title">미술</div>
   </div>
 
-  <div class="tab-btn">
-    <button class="tab-btn__button coding tab_on" type="button">
-      <span class="tab-btn__title">개발/코딩</span>
+  <div class="tab-menu">
+    <button class="tab-menu__button coding tab_on" type="button">
+      <span class="tab-menu__title">개발/코딩</span>
     </button>
-    <button class="tab-btn__button design" type="button">
-      <span class="tab-btn__title">디자인/영상편집</span>
+    <button class="tab-menu__button design" type="button">
+      <span class="tab-menu__title">디자인/영상편집</span>
     </button>
-    <button class="tab-btn__button art" type="button">
-      <span class="tab-btn__title">미술</span>
+    <button class="tab-menu__button art" type="button">
+      <span class="tab-menu__title">미술</span>
     </button>
   </div>
 
@@ -93,11 +93,11 @@
     $('.header__title--on').show();
     $('.content_on').show();
 
-    $('.tab-btn__button').on('click',function() {
-      $('.tab-btn__button').removeClass('tab_on');
+    $('.tab-menu__button').on('click',function() {
+      $('.tab-menu__button').removeClass('tab_on');
       $(this).addClass('tab_on')
       
-      var idx = $('.tab-btn__button').index(this);
+      var idx = $('.tab-menu__button').index(this);
       
       $('.content__container').hide();
       $('.header__title').hide();
