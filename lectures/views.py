@@ -1,18 +1,29 @@
 from django.shortcuts import render, get_object_or_404
 from lectures.models import Lecture
-from accounts.models import User
+from accounts.models import History, User
 from django.http import JsonResponse
 
 
 def detail(request, lecture_slug):
     lectures = Lecture.objects.all().order_by('created_at')
     lecture = Lecture.objects.get(pk=1)
-    user_info = User.objects.get(is_active=True)
     slug = lecture.slug
+    
+    #임의 설정
+    if request.POST['plus'] :
+        if request.user.is_authenticated:
+            current_user = request.user #로그인한 유저
+            user_info = User.objects.filter(username = current_user.username).get()
+            user_info.lecture_count += 1
+            user_info.save()
+    #임의 설정 끝
+
     return render(request, 'detail.html', {
         'lecture':lecture, 
         'lectures':lectures, 
+        #임의 설정
         'user_info':user_info,
+        #임의 설정 끝
         'slug':slug,
         }
     )

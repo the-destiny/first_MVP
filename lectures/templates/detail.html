@@ -32,6 +32,13 @@
     {% endfor %}    
   </div>
 
+  <!-- 클릭하면 시청횟수가 +1되도록 임의 설정-->
+  <form action="{% url 'detail' lecture.slug %}" method=POST>
+    {% csrf_token %}
+    <input type=submit name="plus" value="+1">
+  </form>
+  <!--임의 설정 끝 -->
+
   <div class="trigger_modal">
     <div class="trigger_modal_header">
     서비스가 마음에 드셨나요?
@@ -51,7 +58,7 @@
   </div>
   <script>
     var slug = '{{slug}}';
-    var lecture_history = '{{user_info.lecture_history}}';
+    var lecture_count= '{{user_info.lecture_count}}';
   </script>
   <script type="text/javascript" src="{% static 'js/playlist.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/youtube.js' %}"></script>
