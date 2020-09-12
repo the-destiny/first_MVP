@@ -1,121 +1,125 @@
-@font-face {
-  font-family: 'Bazzi';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-} 
-$logo_font: 'Bazzi';
-$category_size: 55px;
+@mixin smartphone_font($size, $font-weight){
+  @media (min-width: 320px) and (max-width: 480px) {
+    font-size: $size;
+    font-weight: $font-weight;
+  }
+}
 
-* {
-  margin:0; padding:0;
-  box-sizing: border-box;
+@mixin FLEX_COLUMN {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 body, html {
-  width:100%;
-  height: 100%;
-}
-
-.logo_container {
-  height: 10;
-  color: black;
-  border-bottom: 2px solid black;
-  .logo_img {
-    height: 90px;
-    width: 90px;
-    margin: 15px 0 0 10px;
-    position: relative;
-    z-index: 10;
-  }
-  .logo_name {
-    font-family: $logo_font;
-    font-size: 40px;
-    position: absolute;
-    top: 35px;
-  }
-}
-
-.container { 
-  width:100%;
-  height: 90%;
-  margin: 0 auto; 
-  position:relative; 
-}
-
-.categories {
-  list-style: none;
-}  
-
-.container ul li{
-  display:  inline-block;
-  width:33.33%; 
-  height: 15%;
-  float: left;  
-  text-align:center; 
-  background :#f9f9f9;
-  line-height:100px;
-}
-
-.container label{
-  display: block;
-  width: 100%; 
-  height: $category_size;
-  line-height: $category_size;
-  color: grey;
-  font-size: 20px;
-}
-
-.container input {
-  display: none;
-}
-
-.lectures{
   width: 100%;
-  height: auto;
-  display: none; 
-  text-align: left; 
-  padding: 10px;
-  position: absolute; 
-  left: 0; 
-  top: $category_size;
-  box-sizing: border-box; 
-  border: 5px solid #f9f9f9;
+  height: 100%;
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #FFFFFF;
 }
 
-.container .tabmanu:checked ~ label{
-  background: #ccc;
-  color: black;
-  font-weight: bold;
+a {
+  text-decoration: none;
+  color: #000000;
 }
 
-.container .tabmanu:checked ~ .lectures{
-  display: block;
-  .lectures {
-    content: "";
-    display: table;
-    clear: both;
+.header {
+  @include smartphone_font(18px, bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6%;
+  
+  .header__icon--back {
+    position: absolute;
+    left: 20px;
+    padding: 3% 5%;
+    color: gray;
   }
 }
 
-.thumbnail, .description  {
-  float: left;
-  padding: 10px;
-  height: 250px;
-}
+.tab-menu {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  height: 5.2%;
 
-.description {
-  width: 60%;
-}
+  .tab-menu__button {
+    @include smartphone_font(14px, normal);
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    transition: 0.3s all;
 
-.thumbnail {
-  width: 40%;
-  img {
-  padding-top: 20px;
+    &:hover {
+      color:#000000;
+    }
+  }
+
+  .tab_on {
+    .tab-menu__title{
+      padding-bottom: 12px;
+      border-bottom: 2px solid #000000;
+      font-weight: bold;
+      color: #000000;
+    }
   }
 }
 
-.column {
-  border-bottom-style: solid;
-  border-bottom-color: #ccc;
+.content {
+  height: 88.5%;
+
+  .content__container {
+    display: flex;
+    padding-right: 20px;
+  }
+
+  .content__row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .content__column--thumbnail {
+    @include FLEX_COLUMN;
+    column-width: 40%;
+    flex: 1;
+
+    .thumbnail {
+      height: 90px;
+      width: 90px;
+      padding: 16px 15px 15px 20px;
+    }
+  } 
+      
+  .content__cloumn--desc {
+    @include FLEX_COLUMN;
+    column-width: 60%;
+    flex: 2;
+    
+    .desc {
+      &__title {
+        @include smartphone_font(14px, bold);
+        margin: 0 0 4px 0;
+      }
+      &__lectuerer {
+        @include smartphone_font(12px, normal);
+        margin: 0 0 4px 0;
+      }
+      &__detail {
+        @include smartphone_font(12px, normal);
+        margin: 0;
+      }
+    }
+  }
 }
