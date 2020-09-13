@@ -2,19 +2,31 @@
 {% load static %}
 <html>
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="{% sass_src '../static/style/homepage.scss' %}" type="text/css"/>
+  <script src="https://kit.fontawesome.com/5220950911.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="home_bg_img">  
-    <img class="logo" src="{% static 'img/fondue.png' %}"> 
-    <p class="home_content">다양한 강의를 찍어먹을 수 있는 퐁듀입니다.<br><br>
-       관심있는 분야의 강의를 수강하고<br><br>무료 이용권을 받아보세요!</p>
-    <div class="home_btn_wrapper">
-      <form action="{% url 'home' %}" method='POST'>
+  <header class="header">
+    <h5 class="header__logo"> FONDUE </h5>
+  </header>
+  <section class="home">
+    <div class="home-container">
+      <h4 class="home-container__text"> 
+        다양한 강의를 <br/>
+        찍어먹을 수 있는 <br/>
+        <b>퐁듀</b>입니다.<br/>
+        <br/>
+        관심분야의 강의를 수강하고 <br/>
+        <b>무료 이용권</b>을 받아보세요! 
+      </h4>
+      <form class="home-container__form" action="{% url 'home' %}" method='POST'>
         {% csrf_token %}
-        <button class="home_btn" type="submit">만나러 가기</button>
+        <button class="home_btn" type="submit"> <b>만나러 가기</b> <i class="fas fa-angle-down fa-lg"></i> </button>
       </form>
     </div>
-  </div>
+  </section>
 </body>
 </html>
