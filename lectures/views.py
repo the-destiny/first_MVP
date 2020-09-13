@@ -29,20 +29,10 @@ def playlist_first(request, lecture_slug, lecture_id):
     url = lecture.video
     lectureId = url.split('=')[1]
     data = {}
-    if lecture.is_clicked == False:
-        lecture.is_clicked = True
-        lecture.save()
-    for item in lectures:
-        if item.pk == lecture_id:
-            continue
-        if item.is_clicked == True:
-            item.is_clicked = False
-            item.save()
     data = {
         'title':lecture.title,
         'description':lecture.description,
         'lecturer':lecture.lecturer,
-        'is_clicked':lecture.is_clicked,
         'created_at':lecture.created_at,
         'lectureId' : lectureId,
     }
@@ -55,20 +45,10 @@ def playlist_clicked(request, lecture_slug, lecture_id):
     url = lecture.video
     lectureId = url.split('=')[1]
     data = {}
-    if lecture.is_clicked == False:
-        lecture.is_clicked = True
-        lecture.save()
-    for item in lectures:
-        if item.pk == lecture_id:
-            continue
-        if item.is_clicked == True:
-            item.is_clicked = False
-            item.save()
     data = {
         'title':lecture.title,
         'description':lecture.description,
         'lecturer':lecture.lecturer,
-        'is_clicked':lecture.is_clicked,
         'created_at':lecture.created_at,
         'lectureId' : lectureId,
     }
