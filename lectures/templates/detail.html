@@ -39,19 +39,19 @@
   <!--임의 설정 끝 -->
   <div class="trigger-modal">
     <div class="trigger-modal__header">
-    서비스가 마음에 드셨나요?
+    <b>서비스가 마음에 드셨나요?</b>
     </div>
     <div class="trigger-modal__body">
     실제 서비스 런칭 시 한달 무료 이용권을 드립니다.</br>
     이메일을 작성해서 신청하시겠습니까?
     </div>
     <form action="{% url 'detail' lecture.slug %}" method="POST" class="trigger-modal__form">
-      <div class="trigger-modal__form__input-email">
+      <div>
         {% csrf_token %}
-        <input type="text" placeholder="E-mail" name="email">
+        <input type="text" placeholder="E-mail" class="trigger-modal__email" name="email">
       </div>
-      <input type="submit" value="제출하기" class="trigger-modal__form__submit"></input>
-      <input type="button" value="건너뛰기>" class="trigger-modal__form__close"></input>
+        <input type="submit" value="제출하기" class="trigger-modal__submit"></input>
+        <input type="button" value="건너뛰기>" class="trigger-modal__close"></input>
     </form>
   </div>
   <script>
