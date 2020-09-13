@@ -1,0 +1,109 @@
+{% load sass_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Fondue 1st MVP</title>
+  <link href="{% sass_src '../static/style/listup_detail.scss' %}" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/b000af9e2e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="" class="header__icon--back">&#12296;</a>
+    <div class="header__title header__title--on">개발/코딩</div>
+    <div class="header__title">디자인/영상편집</div>
+    <div class="header__title">미술</div>
+  </div>
+
+  <div class="tab-menu">
+    <button class="tab-menu__button coding tab_on" type="button">
+      <span class="tab-menu__title">개발/코딩</span>
+    </button>
+    <button class="tab-menu__button design" type="button">
+      <span class="tab-menu__title">디자인/영상편집</span>
+    </button>
+    <button class="tab-menu__button art" type="button">
+      <span class="tab-menu__title">미술</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <a class="content__container content_on" href="">
+    <div class="content__container--coding">
+      <div class="content__row">
+        <div class="content__column--thumbnail">
+          <div class="thumbnail-wrapper">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
+          </div>
+        </div>
+        <div class="content__cloumn--desc">
+          <div class="desc">
+            <p class="desc__title">파이썬</p>
+            <p class="desc__lectuerer">강의자</p>
+            <p class="desc__detail">이 커리큘럼을 통해서는 파이썬 프로그램 설치와 파이썬 문법을 배울 수 있어요</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+    <a class="content__container" href="">
+    <div class="content__container--design">
+      <div class="content__row">
+        <div class="content__column--thumbnail">
+          <div class="thumbnail-wrapper">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
+          </div>
+        </div>
+        <div class="content__cloumn--desc">
+          <div class="desc">
+            <p class="desc__title">일러스트레이터</p>
+            <p class="desc__lectuerer">강의자</p>
+            <p class="desc__detail">이미지를 수정해요</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+    <a class="content__container" href="">
+    <div class="content__container--art">
+      <div class="content__row">
+        <div class="content__column--thumbnail">
+          <div class="thumbnail-wrapper">
+            <img class="thumbnail" src="{% static 'img/coding.jpg' %}">
+          </div>
+        </div>
+        <div class="content__cloumn--desc">
+          <div class="desc">
+            <p class="desc__title">연필</p>
+            <p class="desc__lectuerer">강의자</p>
+            <p class="desc__detail">연필로그림그리자</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>
+
+  <script>
+    $('.header__title').hide();
+    $('.content__container').hide();
+    $('.header__title--on').show();
+    $('.content_on').show();
+
+    $('.tab-menu__button').on('click',function() {
+      $('.tab-menu__button').removeClass('tab_on');
+      $(this).addClass('tab_on')
+      
+      var idx = $('.tab-menu__button').index(this);
+      
+      $('.content__container').hide();
+      $('.header__title').hide();
+      $('.content__container').eq(idx).show();
+      $('.header__title').eq(idx).show();
+    });
+  </script>
+</body>
+</html>
