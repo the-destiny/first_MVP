@@ -1,6 +1,8 @@
-let playlistButtons = document.getElementsByClassName("playlist__item");
-let lectureDescription = document.getElementsByClassName("description")[0];             
-let lectureTitle = document.getElementsByClassName("title")[0];  
+let playlistButtons = document.getElementsByClassName("class__playlist__item");
+let lectureDescription = document.getElementsByClassName("class__info")[0];             
+let lectureTitle = document.getElementsByClassName("lecture__title")[0];  
+let playlists = document.getElementsByClassName("class__playlist__item");
+let playlistItems = document.getElementsByClassName("item__container");
 
 window.handleclick_fisrt = function (){
   return axios.get(`/lecture/detail/${slug}/1/`)
@@ -20,9 +22,17 @@ window.handleclick_fisrt = function (){
 
         lectureTitle.appendChild(lectureTitle_h4);
         lectureDescription.appendChild(lectureDescription_p);
-        if (data.is_clicked) {
-          playlistButtons[0].classList.add("playlist__item--clicked");
+        if (!playlistButtons[0].classList.contains("class__playlist__item--clicked")) {
+          playlistButtons[0].classList.add("class__playlist__item--clicked");
         }
+
+        for (let step=0; step < playlists.length; step++ ) {
+          if(playlistButtons[step].classList.contains("class__playlist__item--clicked")){
+            continue;
+          }else{
+            playlistButtons[step].classList.add("class__playlist__item--notclicked");
+          }
+        };
 
       return response.data.data;
       }
@@ -30,8 +40,26 @@ window.handleclick_fisrt = function (){
 };
 
 function get_data(value){
-  let playlists = document.getElementsByClassName("playlist__item");
-  
+  let playlists = document.getElementsByClassName("class__playlist__item");
+  let classInfo = document.getElementsByClassName("class__info")[0];
+  let playlist = document.getElementsByClassName("class__playlist")[0];
+
+  if(playlist.classList.contains("class__playlist__on")){
+    playlist.classList.remove("class__playlist__on");
+  }
+
+  if(!classInfo.classList.contains("class__info__on")){
+    classInfo.classList.add("class__info__on");
+  }
+
+  if(!navInfo.classList.contains("class__nav__info__on")){
+    navInfo.classList.add("class__nav__info__on");
+  }
+
+  if(navPlaylist.classList.contains("class__nav__playlist__on")){
+    navPlaylist.classList.remove("class__nav__playlist__on");
+  }
+
   return axios.get(`/lecture/detail/${slug}/${value}/clicked/`)
     .then(
       function(response) {
@@ -55,7 +83,8 @@ function get_data(value){
           lectureDescription.appendChild(lectureDescription_p);
         }
 
-        playlists[value-1].classList.add("playlist__item--clicked");
+        playlists[value-1].classList.add("class__playlist__item--clicked");
+        playlists[value-1].classList.remove("class__playlist__item--notclicked");
 
         for (let step=0; step < playlists.length; step++ ) {
           if (step == value-1) {
@@ -69,8 +98,11 @@ function get_data(value){
             playlistTitle.remove();
             playlistDescription.remove();
           }
-          if(playlists[step].classList.contains("playlist__item--clicked")){
-            playlists[step].classList.remove("playlist__item--clicked");
+          if(playlists[step].classList.contains("class__playlist__item--clicked")){
+            playlists[step].classList.remove("class__playlist__item--clicked");
+          }
+          if(!playlists[step].classList.contains("class__playlist__item--notclicked")){
+            playlists[step].classList.add("class__playlist__item--notclicked");
           }
         };
 
