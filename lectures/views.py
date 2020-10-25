@@ -7,12 +7,33 @@ def detail(request, lecture_slug):
     lectures = Lecture.objects.all().order_by('created_at')
     lecture = Lecture.objects.get(pk=1)
     slug = lecture.slug
-    return render(request, 'detail.html', {
-        'lecture':lecture, 
-        'lectures':lectures, 
-        'slug':slug,
-        }
-    )
+    
+    if request.method == 'POST':
+        #plus = request.POST.get('plus', 0)
+        #email = request.POST.get('email', 0)
+        if request.user.is_authenticated:
+            current_user = request.user #로그인한 유저
+            user_info = User.objects.filter(username = current_user.username).get()
+            if 'plus' in request.POST: #임의설정; +1버튼 누르면 단순히 시청영상 갯수 +1되도록함
+                user_info.lecture_count += 1
+                user_info.save()
+            elif 'email' in request.POST:
+                user_info.email= request.POST['email']
+                user_info.is_subscriber= True
+                user_info.save()
+            return render(request, 'detail.html', {
+                'lecture':lecture, 
+                'lectures':lectures, 
+                'user_info':user_info,
+                'slug':slug,
+            })
+    else:
+        return render(request, 'detail.html', {
+            'lecture':lecture, 
+            'lectures':lectures, 
+            'slug':slug,
+            }
+        )
   
   
 def listup(request):
